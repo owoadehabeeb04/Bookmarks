@@ -10,8 +10,14 @@ console.log(theerror);
 const error = document.querySelector(".error");
 console.log(error);
 const congrats = document.querySelector(".congrats");
+console.log(btnEmail);
+console.log(email);
+const checked = function(){
+  email.value = '';
+}
 
-const maill = btnEmail.addEventListener("click", function () {
+const maill = btnEmail.addEventListener("click", function (e) {
+e.preventDefault();
   const email = document.querySelector(".MAIL").value;
   const validateEmail = (email) => {
     return email.match(
@@ -21,10 +27,20 @@ const maill = btnEmail.addEventListener("click", function () {
   if (validateEmail(email)) {
     congrats.style.display = "inline-flex";
     error.style.border = "4px solid green";
-  } else {
+    theerror.style.display = "none";
+  }
+
+  else {
     theerror.style.display = "inline-flex";
     error.style.border = "4px solid hsl(0, 94%, 66%)";
   }
+
+
+  // if (congrats.style.display = "inline-flex") {
+  //   prompt('congrts')
+  //   console.log( checked());
+  //    }
+
 });
 
 // FAQS accordion
@@ -51,6 +67,8 @@ for (let i = 0; i < Questions.length; i++) {
     headerquestion[i].classList.toggle("colorchanging");
   });
 }
+
+
 
 // TABBED
 
@@ -92,7 +110,7 @@ hamburgered.addEventListener("click", function () {
   logoimg.classList.toggle("activeeslogo");
   logoheader.style.fill = "white";
   closeeed.style.display = "inline-flex";
-  closeee.style.fill = "white";
+  
   hamburgered.style.display = "none";
   Linkitems.style.display = "inline-flex";
   Linkitems.classList.add("LinkItemsActive");
@@ -108,15 +126,15 @@ closeeed.addEventListener("click", function () {
 
 // navlink
 const nav_link = document.querySelectorAll(".nav_link");
-nav_link.forEach((links) => {
-  links.addEventListener("click", function () {
-    Linkitems.style.display = "none";
-    logoheader.style.fill = "#242A45";
-    hamburgered.style.display = "inline-flex";
-    navbar.classList.remove("navbarActive");
-    closeeed.style.display = "none";
-  });
-});
+// nav_link.forEach((links) => {
+//   links.addEventListener("click", function () {
+//     Linkitems.style.display = "nonezz";
+//     logoheader.style.fill = "#242A45";
+//     hamburgered.style.display = "inline-flex";
+//     navbar.classList.remove("navbarActive");
+//     closeeed.style.display = "none";
+//   });
+// });
 
 // login
 const navlogin = document.querySelector(".LoginButton");
@@ -173,12 +191,6 @@ const passwordsign2 = document.querySelector('.input_password2_sign');
 
 
 
-// formsign.forEach((forms) => forms.addEventListener("submit", function (e) {
-//   e.preventDefault();
-
-
-//   validateInputs();
-// }));
 
 
 formlogin.addEventListener("submit", (e) => {
@@ -193,9 +205,129 @@ formsign.addEventListener("submit", (e) => {
 });
 
 const validateInputs = function(){
-  namesignValue = namesign.value.trim()
-  emailsignValue = emailsign.value.trim()
-  passwordsignValue =passwordsign.value.trim()
-  passwordsign2Value =passwordsign2.value.trim()
+  // namesignValue = namesign.value.trim()
+  // emailsignValue = emailsign.value.trim()
+  // passwordsignValue =passwordsign.value.trim()
+  // passwordsign2Value =passwordsign2.value.trim()
 
+// console.log(namesignValue);
+
+
+//  username 
+if (namesign.value === ''){
+  console.log(namesign.style.border = '1px solid red')
+  alert('noo')
 }
+else {
+  namesign.style.border = '1px solid green'
+}
+// email
+
+const validatingmail = (email) => {
+  return email.match(
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  );}
+
+  if (validatingmail(emailsign.value)){
+emailsign.style.border = ' 1px solid green'
+  }
+  else {
+    emailsign.style.border = ' 1px solid red'
+  }
+// passwprd
+
+if (passwordsign.value === ''){
+  passwordsign.style.border = ' 1px solid red'
+  alert('enter a password')
+}
+else if (passwordsign.value.length < 6) {
+  passwordsign.style.border = ' 1px solid red'
+  alert('password is too short')
+}
+else if (passwordsign2.value === passwordsign.value){
+  alert('password matches congrats')
+  passwordsign.style.border = "1px solid green";
+}
+else {
+  namesign.style.border = '1px solid green'
+}
+
+// confirm password 
+if (passwordsign2.value !== passwordsign.value) {
+  namesign.style.border = '1px solid red'
+}
+else if (passwordsign2.value === ''){
+  passwordsign2.style.border = ' 1px solid red'
+}
+else if (passwordsign2.value === passwordsign.value){
+  alert('password matches congrats')
+  passwordsign2.style.border = "1px solid green";
+}
+else {
+  passwordsign2.style.border = "1px solid green"; 
+}
+
+
+
+if (passwordsign2.value === passwordsign.value && validatingmail(emailsign.value) && 
+namesign.value.length >= 1 && passwordsign.value.length >= 6 && passwordsign2.value.length >= 6 ){
+passwordsign2.value = ''
+passwordsign.value = ''
+namesign.value = ''
+emailsign.value = ''
+emailsign.style.border = ' 1px solid green'
+passwordsign.style.border = ' 1px solid green'
+passwordsign2.style.border = ' 1px solid green'
+namesign.style.border = ' 1px solid green'
+
+
+window.location.reload();
+}
+}
+
+
+const validateInputs2 = function(){
+  
+
+const validatingmail = (email) => {
+  return email.match(
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  );}
+
+  if (validatingmail(emaillogin.value)){
+emaillogin.style.border = ' 1px solid green'
+  }
+  else {
+    emaillogin.style.border = ' 1px solid red'
+  }
+// passwprd
+
+if (passwordlogin.value === ''){
+  passwordlogin.style.border = ' 1px solid red'
+  alert('enter a password')
+}
+else if (passwordlogin.value.length < 6) {
+  passwordlogin.style.border = ' 1px solid red'
+  alert('password is too short')
+}
+else {
+  passwordlogin.style.border = '1px solid green'
+}
+
+
+
+
+if ( validatingmail(emaillogin.value) && 
+ passwordlogin.value.length >= 6  ){
+passwordlogin.value = ''
+emaillogin.value = ''
+emaillogin.style.border = ' 1px solid green'
+passwordlogin.style.border = ' 1px solid green'
+
+
+window.location.reload();
+}
+}
+
+
+

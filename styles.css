@@ -646,7 +646,8 @@ footer a {
    width: 100%;
 }
 label {
-    text-align: center;
+    text-align: left;
+    color: var(--SoftBlue);
 }
 .name input[type=text] {
     border: 1px solid var(--SoftBlue);
@@ -706,7 +707,7 @@ margin-bottom: 1rem;
 }
 .LOG-IN .login:hover {
 background-color: hsl(231, 33%, 46%) ;
-border: 2px solid hsl(231, 33%, 46%) ;
+border: 2px solid #4f5a9c ;
 max-width: 100%;
 margin-left: 0rem;
 border-radius: 20px;
@@ -759,21 +760,71 @@ z-index: 1000;
 
   .close-login {
     position: absolute;
-    top: -4%;
+    top: 0%;
     right: 0%;
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     color: var(--softred);
     cursor: pointer;
     border: none;
     background: none;
   }
   
-
+.password label {
+    margin-top: 1em;
+}
         .featuresside {
             margin-top: 3rem;
             /* mobileup */
         }
-       
+       /* .name .input_email_sign {
+        background-image: url(/bookmark-landing-page-master/images/email-mail-svgrepo-com.svg);
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: contain;
+        background-origin: content-box;
+       }
+       .name .input_email_login {
+        background-image: url(/bookmark-landing-page-master/images/email-mail-svgrepo-com.svg);
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: contain;
+        background-origin: content-box;
+       }
+       .name .input_name_login {
+        background-image: url(/bookmark-landing-page-master/images/user-svgrepo-com.svg);
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: contain;
+        background-origin: content-box;
+       }
+       .name .input_name_sign {
+        background-image: url(/bookmark-landing-page-master/images/user-svgrepo-com.svg);
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: contain;
+        background-origin: content-box;
+       }
+       .password .input_password_login {
+        background-image: url(/bookmark-landing-page-master/images/password-lock-svgrepo-com.svg);
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: contain;
+        background-origin: content-box;
+       }
+       .password .input_password_sign {
+        background-image: url(/bookmark-landing-page-master/images/password-lock-svgrepo-com.svg);
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: contain;
+        background-origin: content-box;
+       }
+       .password .input_password2_sign {
+        background-image: url(/bookmark-landing-page-master/images/password-lock-svgrepo-com.svg);
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: contain;
+        background-origin: content-box;
+       } */
       @media only screen and (max-width: 1200px) {
     
         .HeroImg {
@@ -1200,7 +1251,6 @@ right: 5%;
     line-height: 1.5rem;
 }
 
-
 .LOG-IN form {
     width: 100%;
 }
@@ -1237,11 +1287,19 @@ right: 5%;
         background-repeat: no-repeat;
         background-position: right;
     }
+    .form input[type=email] {
+        width: 100%;
+        text-align: center;
+    }
     .thefeatures {
         width: 100%;
     }
     .theerror{
         display: none;
+        visibility: hidden;
+    }
+    .congrats {
+        visibility: hidden;
     }
     .HeroImg2 {
         background-color: hsl(231, 69%, 60%) ;
@@ -1307,6 +1365,9 @@ right: 5%;
         padding: 3rem 3rem;
         width: 60%;
     }
+    .password {
+        margin-top: 0rem;
+    }
 }
 @media only screen and (max-width: 377px)  {
 .Hero .btn{
@@ -1327,7 +1388,7 @@ margin: 0rem;
 }
 @media only screen and (max-width: 330px)  {
     .LOG-IN {
-        padding: 3rem 3rem;
+        padding: 0em 2rem;
         width: 60%;
     }
 }
